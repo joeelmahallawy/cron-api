@@ -8,7 +8,7 @@ import {
   validateRequestBodyWithFields,
 } from './helpers';
 
-const server = fastify({ logger: true, pluginTimeout: 15000 });
+const server = fastify({ logger: true });
 
 // store timer objects in memory
 const timeoutIds: { [key: string]: NodeJS.Timeout } = {};
