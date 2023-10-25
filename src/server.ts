@@ -245,4 +245,5 @@ server.post(`/stop`, async (req, reply) => {
   }
 });
 
-server.listen({ port: 4000 });
+// @ts-expect-error
+server.listen({ port: process.env.PORT || 4000, host: '0.0.0.0' });
