@@ -1,4 +1,3 @@
-import fetch from 'node-fetch';
 import 'dotenv/config';
 import crypto from 'crypto';
 import fastify, { FastifyError } from 'fastify';
@@ -246,4 +245,7 @@ server.post(`/stop`, async (req, reply) => {
 });
 
 // @ts-expect-error
-server.listen({ port: process.env.PORT || 4000, host: '0.0.0.0' });
+server.listen({
+  port: process.env.PORT || 4001,
+  host: '0.0.0.0',
+});

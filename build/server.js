@@ -6,7 +6,7 @@ const crypto_1 = tslib_1.__importDefault(require("crypto"));
 const fastify_1 = tslib_1.__importDefault(require("fastify"));
 const redis_1 = tslib_1.__importDefault(require("@fastify/redis"));
 const helpers_1 = require("./helpers");
-const server = (0, fastify_1.default)({ logger: true, pluginTimeout: 15000 });
+const server = (0, fastify_1.default)({ logger: true });
 const timeoutIds = {};
 server.register(redis_1.default, { url: process.env.REDIS_URL });
 server.get(`/createToken`, async (req, reply) => {
@@ -144,5 +144,8 @@ server.post(`/stop`, async (req, reply) => {
         return reply.status(400).send({ success: false, error: err.message });
     }
 });
-server.listen({ port: process.env.PORT || 4000, host: '0.0.0.0' });
+server.listen({
+    port: process.env.PORT || 4001,
+    host: '0.0.0.0',
+});
 //# sourceMappingURL=server.js.map
